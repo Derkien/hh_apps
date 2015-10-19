@@ -100,7 +100,6 @@ public class Fractions {
             tempMod = (tempMod * base) % b;
         }
         while (tempMod != mod);
-
         return pL;
     }
 
