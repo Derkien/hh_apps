@@ -1,10 +1,8 @@
-package com.hh.tasks;
+package com.hh.tasks.one;
 
-import java.util.ArrayList;
+import com.hh.tasks.Utils;
+
 import java.util.Arrays;
-import java.util.List;
-import java.util.Scanner;
-
 /**
  * Медиана
  * Даны два отсортированных числовых массива одинаковой длины N. Найдите медиану числового массива длины 2N,
@@ -13,41 +11,20 @@ import java.util.Scanner;
  * 1 2 3 4
  * 1 4 5 6
  */
-public class One {
+public class Median {
     public static void main(String[] args) {
-        System.out.print("Задайте элементы первого массива\r\n");
-        int[] numbers = readNum();
-        System.out.print("Длина вашего массива: " + numbers.length + " \r\n");
-        System.out.print("Задайте элементы второго массива\r\n");
-        int[] numbers2 = readNum();
+        Utils.printMes("Задайте две отсортированные последовательности чисел.");
+        Utils.printMes("Задайте элементы первого массива, например: 1 2 3 4");
+        int[] numbers = Utils.readNum();
+        Utils.printMes("Длина массива: " + numbers.length);
+        Utils.printMes("Задайте элементы второго массива, например: 1 4 5 6");
+        int[] numbers2 = Utils.readNum();
         if (numbers.length != numbers2.length) {
-            System.out.print("Длины массивов не совпадают! Повторите ввод!\r\n");
-            main(args);
+            Utils.printMes("Длины массивов не совпадают! Повторите ввод!");
+            System.exit(0);
         }
-        System.out.print("Начинаю считать медиану...\r\n");
-        printMes(Double.toString(getMedian(numbers, numbers2, numbers.length)));
-    }
-
-    public static int[] readNum() {
-        Scanner s = new Scanner(System.in);
-        List<Integer> numbers = new ArrayList<Integer>();
-        Scanner numScanner = new Scanner(s.nextLine());
-        for (; ; ) {
-            if (numScanner.hasNextInt()) {
-                numbers.add(numScanner.nextInt());
-            } else {
-                System.out.println("Ввод принят...");
-                break;
-            }
-        }
-        int[] ret = new int[numbers.size()];
-        for (int i = 0; i < ret.length; i++)
-            ret[i] = numbers.get(i);
-        return ret;
-    }
-
-    protected static void printMes(String str) {
-        System.out.print("Медиана: " + str + "\r\n");
+        Utils.printMes("Начинаю считать медиану...");
+        Utils.printMes("Медиана: " + Double.toString(getMedian(numbers, numbers2, numbers.length)));
     }
 
     /**
