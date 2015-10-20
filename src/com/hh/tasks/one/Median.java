@@ -13,7 +13,7 @@ import java.util.Arrays;
  * 1 4 5 6
  */
 public class Median {
-    public static void main(String[] args) {
+    public void main(String[] args) {
         System.out.println("Input two sorted sequences of integer numbers");
         System.out.println("Input first, like: 1 2 3 4");
         int[] numbers = Utils.readNum();
@@ -22,7 +22,6 @@ public class Median {
         int[] numbers2 = Utils.readNum();
         if (numbers.length != numbers2.length) {
             System.out.println("Length of inputted arrays mismatch. Exit.");
-//            System.exit(0);
             throw new IllegalArgumentException("Wrong arguments passed! Exit!");
         }
         System.out.println("Looking fo Median...");
@@ -47,7 +46,7 @@ public class Median {
             return (double) (ar1[0] + ar2[0]) / 2;
         }
         if (n == 2) {
-            return (double) ( (ar1[0] > ar2[0] ? ar1[0] : ar2[0]) + (ar1[1] < ar2[1] ? ar1[1] : ar2[1])) / 2;
+            return (double) ((ar1[0] > ar2[0] ? ar1[0] : ar2[0]) + (ar1[1] < ar2[1] ? ar1[1] : ar2[1])) / 2;
         }
         medianOne = median(ar1, n);
         medianTwo = median(ar2, n);

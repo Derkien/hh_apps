@@ -41,12 +41,16 @@ public class Utils {
                 break;
             }
         }
-        System.out.println("Input accepted...");
-        int[] ret = new int[numbers.size()];
-        for (int i = 0; i < ret.length; i++) {
-            ret[i] = numbers.get(i);
+        if (numbers.size() == 0) {
+            throw new IllegalArgumentException("Wrong arguments passed! Exit!");
+        } else {
+            System.out.println("Input accepted...");
+            int[] ret = new int[numbers.size()];
+            for (int i = 0; i < ret.length; i++) {
+                ret[i] = numbers.get(i);
+            }
+            return ret;
         }
-        return ret;
     }
 
     /**
@@ -72,7 +76,7 @@ public class Utils {
                 }
             }
         }
-        if (numbers.size() % 3 > 0) {
+        if (numbers.size() != 3) {
             throw new IllegalArgumentException("Wrong arguments passed! Exit!");
         } else {
             System.out.println("Input accepted...");

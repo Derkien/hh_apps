@@ -6,33 +6,31 @@ import com.hh.tasks.Utils;
  * Дробь
  * Даны два числа: a и b (вводятся в десятичной системе счисления). Найдите значение числа a/b,
  * записанного в k-ичной системе счисления. Если a/b — периодическая дробь, то период следует заключить в скобки.
- * <p/>
  * Пример входных данных:
  * 1 2 8
  * 1 12 10
- * <p/>
  * Пример выходных данных:
  * 0.4
  * 0.08(3)
  */
 public class Fractions {
 
-    public static void main(String[] args) {
-        System.out.println("Input numerator, denominator and base, like: 4325326 97 10");
+    public void main(String[] args) {
+        System.out.println("Input numerator, denominator and base, like: 17 983 10");
         int[] numbers = Utils.readThreeInt();
         // length of remainder
-        int scale = 100;
+        int scale = 30000;
         String value = Division(numbers[0], numbers[1], numbers[2], scale);
-        System.out.println(numbers[0] + "/" + numbers[1] + " = " + value + " (" + numbers[2] + "-based numeration system)");
+        System.out.println("Result: " + numbers[0] + "/" + numbers[1] + " = " + value + " (" + numbers[2] + "-based numeration system)");
     }
 
     /**
+     * Start operation
      *
-     *
-     * @param a     числитель
-     * @param b     знаменатель
-     * @param base  основание (система счисления)
-     * @param scale максимальное число знаков после запятой в результате
+     * @param a     numerator
+     * @param b     denominator
+     * @param base  base (numeration system)
+     * @param scale length of remainder
      * @return String
      */
     public static String Division(int a, int b, int base, int scale) {
@@ -85,12 +83,12 @@ public class Fractions {
 
     /**
      * Period length
-     * Dividing until get remainder that we have had before
+     * Dividing remainder multiplied by base by denominator until get result that we have had before
      * Делим до тех пор, пока не наткнемся на остаток, который уже был / long division, получим длину периода
      *
-     * @param mod  int остаток от деления
-     * @param b    int знаменатель
-     * @param base int основание
+     * @param mod  int test remainder
+     * @param b    int denominator
+     * @param base int base (numeration system)
      * @return int
      */
     public static int getPeriodLength(int mod, int b, int base) {
@@ -108,8 +106,8 @@ public class Fractions {
      * Brackets
      *
      * @param number  String дробь
-     * @param pLength длина периода
-     * @return String дробь с выделенным периодом
+     * @param pLength period length
+     * @return String result string
      */
     public static String bracketPeriod(String number, int pLength) {
         int left = number.indexOf(".") + 1;
