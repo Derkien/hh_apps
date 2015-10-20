@@ -2,8 +2,8 @@ HH tasks
 ==============
 1. Median
 ----------
-Two sorted arrays with **N** length each are given.
-Find the Median of numeric array with length of **2N** consisting from elements of given arrays.
+Two sorted arrays **N**-size each are given.
+Find the *Median* of numeric array **2N**-size consisting from elements of given arrays.
 
 Input like:  
 1 2 3 4  
@@ -14,8 +14,8 @@ Should output:
 
 2. Fraction
 -----------
-Two numbers **a** and **b** (input in decimal numeration system). Find result of **a/b**, in numeration system **k**. If fraction **a/b** is
-periodical, then put period in brackets.
+Two numbers **a** and **b** (input in decimal numeration system). Find result of **a/b**, in numeration system **k**.  
+If fraction **a/b** is periodical, then put period in brackets.
 
 Input like:  
 1 2 8  
