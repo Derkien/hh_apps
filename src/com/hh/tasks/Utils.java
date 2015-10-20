@@ -7,22 +7,13 @@ import java.util.Scanner;
 
 public class Utils {
     /**
-     * Вывести
-     *
-     * @param str String
-     */
-    public static void printMes(String str) {
-        System.out.print(str + "\r\n");
-    }
-
-    /**
      * Некорректный ввод
      *
      * @param wrongInput string
      * @param reason     void
      */
     public static void skipMes(String wrongInput, String reason) {
-        System.out.print("Некорректный ввод '" + wrongInput + "': " + reason + "... пропускаем...\r\n");
+        System.out.println("Некорректный ввод '" + wrongInput + "': " + reason + "... пропускаем...");
     }
 
     /**
@@ -37,12 +28,12 @@ public class Utils {
         for (; ; ) {
             if (numScanner.hasNext()) {
                 if (!numScanner.hasNextInt()) {
-                    Utils.printMes("некорректный ввод '" + numScanner.next() + "' пропускаем...");
+                    System.out.println("некорректный ввод '" + numScanner.next() + "' пропускаем...");
                 } else {
                     numbers.add(numScanner.nextInt());
                 }
             } else {
-                Utils.printMes("Ввод принят...");
+                System.out.println("Ввод принят...");
                 break;
             }
         }
