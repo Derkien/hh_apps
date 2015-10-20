@@ -28,7 +28,12 @@ public class Utils {
         for (; ; ) {
             if (numScanner.hasNext()) {
                 if (!numScanner.hasNextInt()) {
-                    System.out.println("некорректный ввод '" + numScanner.next() + "' пропускаем...");
+                    String n = numScanner.next();
+                    if (n.contains(".")) {
+                        Utils.skipMes(n, "дроби не поддерживаются");
+                    } else {
+                        Utils.skipMes(n, "требуется число");
+                    }
                 } else {
                     numbers.add(numScanner.nextInt());
                 }
