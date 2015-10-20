@@ -27,7 +27,7 @@ Should output:
 
 ## How to run
 
-Run from your cmd **java.exe -jar hh_apps.jar**
+Run from your cmd **java.exe -jar hh_apps.jar**  
 Or dl src and build them. Main class is runApp.java
 
 ## Jar run result
