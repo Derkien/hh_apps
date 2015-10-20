@@ -14,8 +14,7 @@ Should output:
 
 2. Fraction
 -----------
-Two numbers **a** and **b** (input in decimal numeration system). Find result of **a/b**, in numeration system **k**.  
-If fraction **a/b** is periodical, then put period in brackets.
+Two numbers **a** and **b** (input in decimal numeration system). Find result of **a/b**, in numeration system **k**. If fraction **a/b** is periodical, then put period in brackets.
 
 Input like:  
 1 2 8  
