@@ -17,12 +17,12 @@ import com.hh.tasks.Utils;
  */
 public class Fractions {
     public static void main(String[] args) {
-        Utils.printMes("Задайте числитель знаменатель основание, например: 4325326 97 10.");
+        System.out.println("Задайте числитель знаменатель основание, например: 4325326 97 10.");
         int[] numbers = Utils.readThreeInt();
         //максимальное число знаков после запятой в результате
         int scale = 100;
         String value = Division(numbers[0], numbers[1], numbers[2], scale);
-        Utils.printMes(numbers[0] + "/" + numbers[1] + " = " + value + " (в " + numbers[2] + "-ичной системе счисления)");
+        System.out.println(numbers[0] + "/" + numbers[1] + " = " + value + " (в " + numbers[2] + "-ичной системе счисления)");
     }
 
     /**
