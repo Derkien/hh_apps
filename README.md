@@ -1,4 +1,4 @@
-HH tasks
+HH tasks documentation
 ==============
 ## Description 
 ### 1. Median
@@ -27,8 +27,8 @@ Should output:
 
 ## How to run
 
-Run from your cmd **java.exe -jar hh_apps.jar**  
-Or dl src and build them. Main class is runApp.java
+Dl src, open cmd, go to src dir and run from your cmd **java.exe -jar hh_apps.jar**  
+Main class is runApp.java
 
 ## Jar run result
 ![alt text](https://github.com/Derkien/hh_apps/blob/master/img/hh_runapp.png "hh_apps.jar run result")
