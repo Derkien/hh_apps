@@ -13,18 +13,18 @@ import java.util.Arrays;
  */
 public class Median {
     public static void main(String[] args) {
-        Utils.printMes("Задайте две отсортированные последовательности чисел.");
-        Utils.printMes("Задайте элементы первого массива, например: 1 2 3 4");
+        System.out.println("Задайте две отсортированные последовательности чисел.");
+        System.out.println("Задайте элементы первого массива, например: 1 2 3 4");
         int[] numbers = Utils.readNum();
-        Utils.printMes("Длина массива: " + numbers.length);
-        Utils.printMes("Задайте элементы второго массива, например: 1 4 5 6");
+        System.out.println("Длина массива: " + numbers.length);
+        System.out.println("Задайте элементы второго массива, например: 1 4 5 6");
         int[] numbers2 = Utils.readNum();
         if (numbers.length != numbers2.length) {
-            Utils.printMes("Длины массивов не совпадают! Повторите ввод!");
+            System.out.println("Длины массивов не совпадают! Повторите ввод!");
             System.exit(0);
         }
-        Utils.printMes("Начинаю считать медиану...");
-        Utils.printMes("Медиана: " + Double.toString(getMedian(numbers, numbers2, numbers.length)));
+        System.out.println("Начинаю считать медиану...");
+        System.out.println("Медиана: " + Double.toString(getMedian(numbers, numbers2, numbers.length)));
     }
 
     /**
