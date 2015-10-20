@@ -3,6 +3,7 @@ package com.hh.tasks.one;
 import com.hh.tasks.Utils;
 
 import java.util.Arrays;
+
 /**
  * Медиана
  * Даны два отсортированных числовых массива одинаковой длины N. Найдите медиану числового массива длины 2N,
@@ -13,26 +14,27 @@ import java.util.Arrays;
  */
 public class Median {
     public static void main(String[] args) {
-        System.out.println("Задайте две отсортированные последовательности чисел.");
-        System.out.println("Задайте элементы первого массива, например: 1 2 3 4");
+        System.out.println("Input two sorted sequences of integer numbers");
+        System.out.println("Input first, like: 1 2 3 4");
         int[] numbers = Utils.readNum();
-        System.out.println("Длина массива: " + numbers.length);
-        System.out.println("Задайте элементы второго массива, например: 1 4 5 6");
+        System.out.println("Array length is: " + numbers.length);
+        System.out.println("Input second with length " + numbers.length + ", like: 1 4 5 6");
         int[] numbers2 = Utils.readNum();
         if (numbers.length != numbers2.length) {
-            System.out.println("Длины массивов не совпадают! Повторите ввод!");
-            System.exit(0);
+            System.out.println("Length of inputted arrays mismatch. Exit.");
+//            System.exit(0);
+            throw new IllegalArgumentException("Wrong arguments passed! Exit!");
         }
-        System.out.println("Начинаю считать медиану...");
-        System.out.println("Медиана: " + Double.toString(getMedian(numbers, numbers2, numbers.length)));
+        System.out.println("Looking fo Median...");
+        System.out.println("Median is: " + Double.toString(getMedian(numbers, numbers2, numbers.length)));
     }
 
     /**
-     * Медиана массива длиной 2n, состоящего из двух отсортированных массивов одинаковой длины n
+     * Find median of two n-size arrays
      *
-     * @param ar1 int array сортированный массив
-     * @param ar2 int array сортированный массив
-     * @param n   int длина массива
+     * @param ar1 int[] array sorted array
+     * @param ar2 int[] array sorted array
+     * @param n   int array length
      * @return double
      */
     protected static double getMedian(int ar1[], int ar2[], int n) {
@@ -45,7 +47,7 @@ public class Median {
             return (double) (ar1[0] + ar2[0]) / 2;
         }
         if (n == 2) {
-            return (double) (getMax(ar1[0], ar2[0]) + getMin(ar1[1], ar2[1])) / 2;
+            return (double) ( (ar1[0] > ar2[0] ? ar1[0] : ar2[0]) + (ar1[1] < ar2[1] ? ar1[1] : ar2[1])) / 2;
         }
         medianOne = median(ar1, n);
         medianTwo = median(ar2, n);
@@ -65,7 +67,7 @@ public class Median {
     }
 
     /**
-     * Медиана сортированного массива
+     * Median of sorted array
      *
      * @param arr int array
      * @param n   int
@@ -76,27 +78,5 @@ public class Median {
             return (double) (arr[n / 2] + arr[n / 2 - 1]) / 2;
         else
             return (double) arr[n / 2];
-    }
-
-    /**
-     * Максимум
-     *
-     * @param x int
-     * @param y int
-     * @return int
-     */
-    protected static int getMax(int x, int y) {
-        return x > y ? x : y;
-    }
-
-    /**
-     * Минимум
-     *
-     * @param x int
-     * @param y int
-     * @return int
-     */
-    protected static int getMin(int x, int y) {
-        return x > y ? y : x;
     }
 }

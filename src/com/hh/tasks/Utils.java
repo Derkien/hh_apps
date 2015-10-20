@@ -7,17 +7,17 @@ import java.util.Scanner;
 
 public class Utils {
     /**
-     * Некорректный ввод
+     * Skip input message
      *
      * @param wrongInput string
      * @param reason     void
      */
     public static void skipMes(String wrongInput, String reason) {
-        System.out.println("Некорректный ввод '" + wrongInput + "': " + reason + "... пропускаем...");
+        System.out.println("Wrong input '" + wrongInput + "': " + reason + "... skip...");
     }
 
     /**
-     * Считываем целые числа из консоли
+     * Read from console
      *
      * @return int[]
      */
@@ -30,18 +30,18 @@ public class Utils {
                 if (!numScanner.hasNextInt()) {
                     String n = numScanner.next();
                     if (n.contains(".")) {
-                        Utils.skipMes(n, "дроби не поддерживаются");
+                        Utils.skipMes(n, "fractions are not allowed");
                     } else {
-                        Utils.skipMes(n, "требуется число");
+                        Utils.skipMes(n, "need int");
                     }
                 } else {
                     numbers.add(numScanner.nextInt());
                 }
             } else {
-                System.out.println("Ввод принят...");
                 break;
             }
         }
+        System.out.println("Input accepted...");
         int[] ret = new int[numbers.size()];
         for (int i = 0; i < ret.length; i++) {
             ret[i] = numbers.get(i);
@@ -50,7 +50,7 @@ public class Utils {
     }
 
     /**
-     * Считываем целые числа из консоли
+     * Read three int from console
      *
      * @return int[]
      */
@@ -63,9 +63,9 @@ public class Utils {
                 if (!numScanner.hasNextInt()) {
                     String n = numScanner.next();
                     if (n.contains(".")) {
-                        Utils.skipMes(n, "дроби не поддерживаются");
+                        Utils.skipMes(n, "fractions are not allowed");
                     } else {
-                        Utils.skipMes(n, "требуется число");
+                        Utils.skipMes(n, "need int");
                     }
                 } else {
                     numbers.add(numScanner.nextInt());
@@ -73,8 +73,9 @@ public class Utils {
             }
         }
         if (numbers.size() % 3 > 0) {
-            throw new IllegalArgumentException("Некорректные входные данные.");
+            throw new IllegalArgumentException("Wrong arguments passed! Exit!");
         } else {
+            System.out.println("Input accepted...");
             int[] ret = new int[numbers.size()];
             for (int i = 0; i < ret.length; i++) {
                 ret[i] = numbers.get(i);
@@ -84,7 +85,7 @@ public class Utils {
     }
 
     /**
-     * Получить значение
+     * Get char
      *
      * @param c int
      * @return char
@@ -96,7 +97,7 @@ public class Utils {
     }
 
     /**
-     * Конвертация целого положительного числа в число в системе счисления base
+     * Convert given positive int i to base 'base'
      *
      * @param i    int
      * @param base int

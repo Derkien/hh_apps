@@ -16,17 +16,18 @@ import com.hh.tasks.Utils;
  * 0.08(3)
  */
 public class Fractions {
+
     public static void main(String[] args) {
-        System.out.println("Задайте числитель знаменатель основание, например: 4325326 97 10.");
+        System.out.println("Input numerator, denominator and base, like: 4325326 97 10");
         int[] numbers = Utils.readThreeInt();
-        //максимальное число знаков после запятой в результате
+        // length of remainder
         int scale = 100;
         String value = Division(numbers[0], numbers[1], numbers[2], scale);
-        System.out.println(numbers[0] + "/" + numbers[1] + " = " + value + " (в " + numbers[2] + "-ичной системе счисления)");
+        System.out.println(numbers[0] + "/" + numbers[1] + " = " + value + " (" + numbers[2] + "-based numeration system)");
     }
 
     /**
-     * Выполнить деление
+     *
      *
      * @param a     числитель
      * @param b     знаменатель
@@ -45,16 +46,16 @@ public class Fractions {
             b *= (-1);
         }
         int mod;
-        // остаток
+        // remainder
         mod = a % b;
-        // целая часть в нужной системе счисления
+        // integer part converted to base
         String result = Utils.convertToBase(a / b, base);
-        // вернем знак
+        // sign
         if (sign < 0) result = "-" + result;
-        // если остаток ноль, то вернем результат
+        // if remainder is zero
         if (mod == 0) return result;
 
-        // вычислим дробную часть
+        // get the remainder
         int intDiv;
         result += ".";
         int step = 0;
@@ -65,26 +66,26 @@ public class Fractions {
             mod = a % b;
             result += Utils.valueToDigit(intDiv);
             step++;
-            //к этому моменту период уже обязан начаться
-            //найдем длину
+            //period must start from that point... find length
             if (step == b + 1) {
                 pL = getPeriodLength(mod, b, base);
             }
         }
-        // если периода нет или он длиннее лимита дробной части...
+        // no period or it exceed limits
         if (pL <= 0 || pL > scale) {
-            // если длина дробной части не превышает установленный размер
+            // if remainder is not exceed
             if ((result.length() - result.indexOf(".") + 1) < scale) {
                 return result;
             }
             return result.substring(0, result.indexOf(".") + scale + 1);
         }
-        // обернем период в скобки
-        return putPeriodIntoBrackets(result, pL);
+        // put in brackets
+        return bracketPeriod(result, pL);
     }
 
     /**
-     * Вычислить длину периода
+     * Period length
+     * Dividing until get remainder that we have had before
      * Делим до тех пор, пока не наткнемся на остаток, который уже был / long division, получим длину периода
      *
      * @param mod  int остаток от деления
@@ -104,17 +105,17 @@ public class Fractions {
     }
 
     /**
-     * Выделяем период
+     * Brackets
      *
      * @param number  String дробь
      * @param pLength длина периода
      * @return String дробь с выделенным периодом
      */
-    public static String putPeriodIntoBrackets(String number, int pLength) {
+    public static String bracketPeriod(String number, int pLength) {
         int left = number.indexOf(".") + 1;
         int right = left + pLength;
         int left2, right2;
-        //совпадения найдены
+        // ok!
         boolean flag = false;
         while (right < number.length()) {
             left2 = right;
