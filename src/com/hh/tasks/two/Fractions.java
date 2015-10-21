@@ -46,8 +46,9 @@ public class Fractions {
         int mod;
         // remainder
         mod = a % b;
+        
         // integer part converted to base
-        String result = Utils.convertToBase(a / b, base);
+        String result = Utils.convertToBase(a / b, base); //Character.forDigit ...
         // sign
         if (sign < 0) result = "-" + result;
         // if remainder is zero
